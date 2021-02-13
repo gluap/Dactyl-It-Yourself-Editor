@@ -145,11 +145,11 @@ colRange = concat([for (i = [CStart:CEnd]) i], [for (i = [TStart:TEnd]) i]); //c
 ColumnOrigin = [//[translation vec]       [Global Rot]    [Local Rot]
                 [[  -54, -unit*3/4,   1], [   0,   0,   0], [ 0, 90,  0]], //INDEX 1 
                 [[  -38.10,-unit*7/16,-0.5], [-4.5,   0,   0], [ 0, 90,  0]], //INDEX 2 
-                [[  -19.05,   -unit/4,  -1], [-1.5,   0,   0], [ 0, 90,  0]], //INDEX 3 
-                [[    0,    unit/8,  -2], [   4,   0,   0], [ 0, 90,  0]], //MIDDLE 
+                [[  -19.05,   -unit/4,  -4], [-1.5,   0,   0], [ 0, 90,  0]], //INDEX 3 
+                [[    0,    unit/8,  -8], [   4,   0,   0], [ 0, 90,  0]], //MIDDLE 
                 [[   19.05,   -unit/8,-0.0], [  -1,   0,  -0], [ 0, 90,  0]], //RING 
-                [[ 38.10, -unit*4/8, 0.5], [  -5,   0, -0], [ 0, 90,  0]], //PINKY 1 
-                [[ 57.15, -unit*4/8, 0.5], [  -5,   0, -0], [ 0, 90,  0]], //PINKY 2 
+                [[ 38.10, -unit*6/8, 5.5], [  -5,   0, -0], [ 0, 90,  0]], //PINKY 1 
+                [[ 57.15, -unit*6/8, 5.5], [  -5,   0, -0], [ 0, 90,  0]], //PINKY 2 
                 [[ 66.5, -unit*3/8,  21], [ 0,  15, -15], [ 0, 90,  0]], //PINKY 3                 
                 [[  -63,       -23, -23], [ 0,   0,  10], [-5, 95,  0]], //Thumb Outer 
                 [[  -46,       -22, -23], [ 0,   0,   0], [ 0, 90,-60]], //Thumb OuterMid
@@ -301,6 +301,29 @@ Sborder = //color "Crimson"
 //  [[CStart, RowEnds[CStart], false,FRONT, [LEFT,0,0],    [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C1
 //   [CStart, RowEnds[CStart], true,  LEFT, [0,FRONT,0],    [RScale,1,1]] ],
 
+  [[C3, R0, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R0, true, LEFT, [0,RIGHT,0], [RScale,1,1]],
+  [C3, R1, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R1, true, LEFT, [0,RIGHT,0], [RScale,1,1]]],
+   [[C3, R1, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R1, true, LEFT, [0,RIGHT,0], [RScale,1,1]],
+  [C3, R2, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R2, true, LEFT, [0,RIGHT,0], [RScale,1,1]]],
+   [[C3, R2, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R2, true, LEFT, [0,RIGHT,0], [RScale,1,1]],
+  [C3, R3, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R3, true, LEFT, [0,RIGHT,0], [RScale,1,1]]],
+   [[C3, R3, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R3, true, LEFT, [0,RIGHT,0], [RScale,1,1]],
+   [C3, R4, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R4, true, LEFT, [0,RIGHT,0], [RScale,1,1]]],
+   [   [C3, R4, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R4, true, LEFT, [0,RIGHT,0], [RScale,1,1]],
+   [C3, R5, true, RIGHT, [0,RIGHT,0], [1,RScale,1]],
+   [C4, R5, true, LEFT, [0,RIGHT,0], [RScale,1,1]]
+   ],
+
+
   [[C1, RowEnds[C1], false,FRONT, [0,0,0],    [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C1
    [C2, RowEnds[C2], false,FRONT, [LEFT,0,0], [1,RScale,1]] ],
    
@@ -338,7 +361,7 @@ Sborder = //color "Crimson"
    
 //  [[C2, RowInits[C2], false,BACK, [0,0,0],     [1,RScale,1]]],
 //  
-  [[C2, RowInits[C2], false,BACK, [RIGHT,0,0], [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C1
+  [[C2, RowInits[C3], false,BACK, [RIGHT,0,0], [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C1
    [C3, RowInits[C3], false,BACK, [0,0,0], [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C1
    [C4, RowInits[C4], false,BACK, [LEFT,0,0],     [1,RScale,1]]],   
    
@@ -398,16 +421,20 @@ Sborder = //color "Crimson"
 TCJoints = //color "Salmon"
  [
    [[C2, RowInits[C2], false, BACK,    [RIGHT,0,0],        [RScale,1,1]], 
+    [C3, RowInits[C3], false, BACK,    [LEFT,0,0],        [RScale,1,1]], 
     [T2,          R2,  true,  RIGHT,   [LEFT,BACK,BOTTOM], [1,1,1]],  
     [T2,          R1,  true,  RIGHT,   [0,0,BOTTOM],    [1,1,1]],
 //    [T2,          R1, false,  BACK,    [RIGHT,0,0],        [1,1,1]]
     ],  
     
    [[C2, RowInits[C2], false, BACK,    [RIGHT,0,0],   [RScale,1,1]], 
+    [C3, RowInits[C3], false, BACK,    [LEFT,0,0],   [RScale,1,1]], 
     [T2,          R2,  true,  RIGHT,   [LEFT,0,BOTTOM],   [1,1,1]],],  
 
    [[C1, RowInits[C2], false, BACK,    [RIGHT,0,0],   [RScale,1,1]], 
-    [C2, RowInits[C2], false, BACK,    [RIGHT,0,0],   [RScale,1,1]], 
+    [C2, RowInits[C2], false, BACK,    [RIGHT,0,0],   [RScale,1,1]],
+    [C3, RowInits[C3], false, BACK,    [LEFT,0,0],   [RScale,1,1]], 
+
     [T2,          R2,  false, FRONT,   [RIGHT,0,0], [1,RScale,1]],],
 
    [[C1, RowInits[C1], false, BACK,    [0,0,0],   [RScale,1,1]], 
@@ -438,6 +465,7 @@ TCJoints = //color "Salmon"
 //   [[T0,          R2,  true,  LEFT,    [0,0,0],   [RScale,1,1]], ],  
    
    [[C2, RowInits[C2], false, BACK,    [RIGHT,0,0],   [RScale,1,1]],
+    [C3, RowInits[C3], false, BACK,    [LEFT,0,0],   [RScale,1,1]],
 //    [T2,          R2,  true,  RIGHT,    [0,FRONT,0],   [1,1,1]], 
     [T2,          R2,  false, FRONT,   [RIGHT,0,0], [1,1,1]],],  
  ];
@@ -671,7 +699,7 @@ Eborder =
       false
     ],   
     [//C2R1 
-      [[C2, R0, false,BACK,                [RIGHT,0,BOTTOM], [1,RScale,1]],
+      [[C2, R1, false,BACK,                [RIGHT,0,BOTTOM], [1,RScale,1]],
        [T2, R1, true,RIGHT,                [0,BACK,BOTTOM], [1,RScale,1]],
        [T2, R1, false,BACK,                [RIGHT,0,BOTTOM], [1,RScale,1]]],
       [[C2, R0, false,BACK+BackOffset,     [RIGHT,0,BOTTOM], [1,EScale,1]],

@@ -1,12 +1,12 @@
 use <Switch.scad> //modules for switches and key holes generation
-use <sweep.scad>
+use <list-comprehension-demos/sweep.scad>
 use <scad-utils/transformations.scad>
 use <scad-utils/morphology.scad>
 use <scad-utils/lists.scad>
 use <scad-utils/shapes.scad>
 use <scad-utils/trajectory.scad>
 use <scad-utils/trajectory_path.scad>
-use <skin.scad>  
+use <list-comprehension-demos/skin.scad>  
 /*
 //TODOs 
 
@@ -140,7 +140,7 @@ module BuildTopPlate(Keyhole = false, Enclosure = true, Trackball = false, Thumb
 //----- Supporting Modules for Main Builder Modules
 
 //----  functions
-function hadamard (a, b) = !(len(a) > 0) ? a*b : [ for (i = [0:len(a) - 1]) hadamard(a[i], b[i])]; // elementwise mult
+function hadamard (a, b) = !(is_list(a)) ? a*b : [ for (i = [0:len(a) - 1]) hadamard(a[i], b[i])]; // elementwise mult
 function rowRange (col) = [RowInits[col]:RowEnds[col]]; // shorthand for row loop range 
 
 //cal global y position without considering rotation for quick condition check
