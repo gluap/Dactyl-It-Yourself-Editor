@@ -656,6 +656,12 @@ module USBPort (Length = 1, type = "C"){
   {
     cube([12.04,16.1,10.6], center = true); 
   }
+  if(type == "micro"){
+    rotate([0,90,90])hull(){
+      translate([0,-4.3,0])cylinder(d = 7, Length);
+      translate([0,4.3,0])cylinder(d = 7, Length);   
+    }
+  }
 }
 
 module BuildBottomEnclosure (struct = Eborder, Mount = false,  JackType = true, MCUType = true)
@@ -808,7 +814,7 @@ module BuildBottomEnclosure (struct = Eborder, Mount = false,  JackType = true, 
     
     if(MCUType == true){
 #      translate(MCULoc)cube(MCUDim, center = true);
-#      translate(USBLoc)USBPort(20);
+#      translate(USBLoc)USBPort(20, type=usbType);
     }
     //TODO: trackball modules?
    
@@ -913,7 +919,7 @@ module BuildBottomPlate(struct = Eborder, hullList = Hstruct, JackType = true, M
 
     if(Mount == true){
       for(i = [0:len(mountScrew)-1]){
-        translate([0,0,0])translate(mountScrew[i])cylinder(d1 = screwtopDia, d2 =  screwholeDia, 2.8, $fn = 32);
+        translate([0,0,0])translate(mountScrew[i])cylinder(d1 = screwtopDia, d2 =  0, screwtopDia/2, $fn = 32);
         translate([0,0,-.5])translate(mountScrew[i])cylinder(d = screwholeDia, bpThickness+1, $fn = 32);
       }
     }
@@ -926,7 +932,7 @@ module BuildBottomPlate(struct = Eborder, hullList = Hstruct, JackType = true, M
     if(MCUType == true){  
       // for flipped Elite C
       translate(MCULoc)cube(MCUDim, center = true);
-      translate(USBLoc)USBPort(20); 
+      translate(USBLoc)USBPort(20, type = usbType); 
       //reset button for 
       translate(MCULoc+[-2.5,5-32.5/2,0])cylinder(d = 3, 15, center = true);
       translate(MCULoc+[-2.5,5-32.5/2,-1])cube([5,4,3], center = true);

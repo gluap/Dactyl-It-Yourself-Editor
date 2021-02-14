@@ -10,6 +10,11 @@ TODOs: implement row wise cherry profiles
        thumb cluster depth
 */
 //-----  Enum
+
+// m3 countersunk screws for the bottom
+screwtopDia=6/2;
+screwholeDia=3.3/2;
+
 R0 = 0; //bottom row
 R1 = 1;
 R2 = 2;
@@ -120,14 +125,15 @@ RER         = 20;
 //
 bpThickness =  3; //Bottom Plate Thickness
 midHeight   = -7; // used to generate hull between mount and enclosure  
-mountScrew  = [[-58,-28,0],[-33,83,0],[68,80,0],[66,-8,0],[10,-8,0]];
+mountScrew  = [[-59,-29,0],[-33,83,0],[68,73,0],[68,-18,0],[10,-12,0]];
 mountHull   = [0,8,15,21,24];
 mountDia    = 5; //mm
 
-MCUDim      = [18.5, 32.5, 1.2];
-MCULoc      = [-13,76,10.1];
+MCUDim      = [18.5, 33.0, 1.7];
+MCULoc      = [-13,70,8.1];
 resetLoc    = [0,0,0]; 
-USBLoc      = [-13,74-5+32.5/2,9+1.2];
+USBLoc      = [-13,74-5+32.5/2,8+1.2];
+usbType     = "micro";
 
 JackLoc     = [-35,50,9];
 JackDim     = [18,6,10];
@@ -171,7 +177,7 @@ RowEnds     = [   R2,    R4,   R4,   R4,   R4,   R4,   R4,   R0,   R2,   R2,    
 //              C0:i1 C1:i2 C2:i3  C3:m  C4:r C5:p1 C6:p2 C7:p3 T0:Ot T1:OM T2:Md  T3:IM  T4:In
 RowTrans    = [[ -.18, -.18, -.18, -.28, -.28, -.28, -.28, -.55, -1.0, -1.0,-1.25, -1.25,     0], //R0
                [  .79,  .79,  .79,  .79,  .79,  .79,  .79,  .45,    0,  -.0,  -.1,     0,     0], //R1s
-               [ 1.93, 1.93, 1.93, 1.93, 1.93, 1.93, 1.93, 1.60,  .95, 0.95,  .95,   .95,     0], //R2s 
+               [ 1.95, 1.95, 1.95, 1.93, 1.93, 1.93, 1.93, 1.60,  .95, 0.95,  .95,   .95,     0], //R2s 
                [ 2.90, 3.02, 3.02, 3.02, 3.02, 3.02, 3.02, 2.55,    0,    0,    0,     0,     0], //R3s
                [ 3.80, 3.80, 3.80, 3.80, 3.80, 3.80, 3.80,    3,    0,    0,    0,     0,     0], //R4
                [ 4.45, 4.45, 4.45, 4.45, 4.45,    4,   -4,    4,    0,    0,    0,     0,     0]  //R5           
