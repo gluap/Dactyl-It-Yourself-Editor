@@ -19,7 +19,7 @@ include <SRC/Layouts/gluap/E-Warp.scad>                // (6x4)+[trichord+1]   T
 
 /*1. Top Plate*/
  mirror([0,0,0]){ //[100] for Left side
-   color(){
+    color(){
      BuildTopPlate(
       Keyhole          = true,  // keyhole cuts + cuts space above plate to remove artifacts frod custod border and enclosure build
       Enclosure        = true,   // light pink if you want to work on layouts turn off for speed 
@@ -33,11 +33,11 @@ include <SRC/Layouts/gluap/E-Warp.scad>                // (6x4)+[trichord+1]   T
 
 //un comment to build bottom plate   
 
- //BuildBottomPlate(struct = Eborder, hullList = Hstruct, Mount = true, JackType =false, MCUType = true);  
+// BuildBottomPlate(struct = Eborder, hullList = Hstruct, Mount = true, JackType =false, MCUType = true);  
 
 /*3. caps for visualization */
   rotate(tenting)translate([0,0,plateHeight]){ 
- //   BuildSet(capType = DSA, colors = "ivory", stemcolor = "lightGreen", switchH = 0);
+    BuildSet(capType = DSA, colors = "ivory", stemcolor = "lightGreen", switchH = 0);
   } 
 } 
- 
+    

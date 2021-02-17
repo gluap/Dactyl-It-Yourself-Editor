@@ -35,7 +35,7 @@ module rotate(angle)            // built-in rotate is inaccurate for 90 degrees,
 }
 
 //################ Main Builder ############################
-module BuildTopPlate(Keyhole = false, Enclosure = true, Trackball = false, ThumbJoint = false, Border = false, PrettyBorder = false, ColoredSection = false,CustomBorder = false)
+module BuildTopPlate(Keyhole = false, Enclosure = true, Trackball = false, ThumbJoint = false, Border = false, PrettyBorder = false, ColoredSection = false,CustomBorder = false, BottomPlateCuts=false)
 {
   //Submodules 
   //TODO: change scope of submodules and remove duplicates now that calls are merged
