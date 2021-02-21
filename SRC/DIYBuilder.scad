@@ -896,6 +896,7 @@ module BuildBottomPlate(struct = Eborder, hullList = Hstruct, JackType = true, M
       
       if(MCUType == true){
         translate(MCULoc+[0,-2.5,-3])cube(MCUDim+[5,5,5], center = true);
+        translate(MCULoc+[0,-MCUDim[1]/2-1,1]) cube([5,3,2],center=true);
       }
       //TODO: trackball modules?
     }  
@@ -940,6 +941,7 @@ module BuildBottomPlate(struct = Eborder, hullList = Hstruct, JackType = true, M
       translate(MCULoc+[-9.25+1.5,0,0])cube([2,32.5,3], center = true);
       translate(MCULoc+[9.25-1.5,0,0])cube([2,32.5,3], center = true);
       translate(MCULoc+[0,-32.5/2+1.5,0])cube([18.5,2,3], center = true);
+      translate(MCULoc+[0,-MCUDim[1]/2+5,5]) cube(5,center=true);
     }  
   }
 }
