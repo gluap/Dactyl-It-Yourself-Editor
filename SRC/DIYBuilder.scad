@@ -811,6 +811,15 @@ module BuildBottomEnclosure (struct = Eborder, Mount = false,  JackType = true, 
     } else if(JackType == "RJ45"){
       #translate(JackLoc+[0,0,0])rotate(JackAng+[0,0,0])cube([15.24,20.75,15], center= true);  
     }
+
+        translate(DispLoc-[15,0,0]){
+      #rotate(DispAng) {
+        translate([5,5,3])cylinder(d=3,h=15,$fn=32);
+        cylinder(d=3.3,h=15,$fn=32);
+        translate([0,0,15-screwtopDia/2])cylinder(d2 = screwtopDia, d1 =  0, screwtopDia/2, $fn = 32);
+        translate([0,0,15-0.1])cylinder(d = screwtopDia, 3, $fn = 32);
+      }
+    }
     
     if(MCUType == true){
 #      translate(MCULoc)cube(MCUDim, center = true);
@@ -899,6 +908,8 @@ module BuildBottomPlate(struct = Eborder, hullList = Hstruct, JackType = true, M
         translate(MCULoc+[0,-MCUDim[1]/2-1,1]) cube([5,3,2],center=true);
       }
       //TODO: trackball modules?
+      DEPTH=12.1;
+      translate(RESETLoc+[0,0,DEPTH/2]) cube([20,20,DEPTH],center=true);
     }  
     
     //CUTS
@@ -924,11 +935,14 @@ module BuildBottomPlate(struct = Eborder, hullList = Hstruct, JackType = true, M
         translate([0,0,-.5])translate(mountScrew[i])cylinder(d = screwholeDia, bpThickness+1, $fn = 32);
       }
     }
-    
+
     if(JackType == true){
       #translate(JackLoc)rotate(JackAng)cube(JackDim, center = true);
       #translate(JackLoc)rotate(JackAng+[90,0,90])translate([0,0,14])cylinder(d = 8, 10, center= true);
     }
+    
+    translate(RESETLoc+[0,0,10.5])Keyhole(tol = 0, clipLength = 15, cutThickness = 15, type = MX, boffsets = 2);
+
     
     if(MCUType == true){  
       // for flipped Elite C

@@ -131,7 +131,10 @@ mountDia    = 5; //mm
 
 MCUDim      = [18.5, 33.0, 1.7];
 MCULoc      = [-13,70,8.1];
-resetLoc    = [0,0,0];
+RESETLoc    = [-13,2,0];
+DispLoc     = [-42,60,20];
+DispAng     = [00,90,0];
+
 USBLoc      = [-13,74-5+32.5/2,8+1.2];
 usbType     = "micro";
 
