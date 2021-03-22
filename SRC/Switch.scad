@@ -193,7 +193,8 @@ module Keyhole(tol = .1, cutThickness = .5, clipLength = 0, type = MX, boffsets 
 {
   $fn = 10;
   bottom_length = 13.9; //should be 14 for mx
-  plate_thickness = 3.51; //mm
+  //plate_thickness = 20;
+  plate_thickness=(type != MX ) ? 3.51 :9;
   holeLength = bottom_length+tol*2;
   holeLenghtChoc = 13.8+tol*2;
   //latch nibs

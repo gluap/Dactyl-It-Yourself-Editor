@@ -125,7 +125,7 @@ RER         = 20;
 //
 bpThickness =  3; //Bottom Plate Thickness
 midHeight   = -7; // used to generate hull between mount and enclosure
-mountScrew  = [[-59,-29,0],[-33,79,0],[68,73,0],[68,-7,0],[10,-12,0]];
+mountScrew  = [[-59,-29,0],[-33,79,0],[68,60,0],[68,-7,0],[10,-12,0]];
 mountHull   = [0,8,15,21,24];
 mountDia    = 5; //mm
 
@@ -158,8 +158,8 @@ ColumnOrigin = [//[translation vec]       [Global Rot]    [Local Rot]
                 [[  -20.05,   -unit/4,  -1], [3+extra_angle,   0,   0], [ -2, 90,  0]], //INDEX 3
                 [[    0,    unit/8,  -3], [   6.5+extra_angle,   0,   0], [ 0, 90,  0]], //MIDDLE
                 [[   20.05,   -unit/8,-3], [  4.5+extra_angle,   0,  -0], [2 , 90,  0]], //RING
-                [[ 40.10, -unit*6/8, 1.5], [  5+extra_angle,   0, -0], [ 4, 90,  0]], //PINKY 1
-                [[ 60.15, -unit*6/8, 3], [  5+extra_angle,   0, -0], [ 6, 90,  0]], //PINKY 2
+                [[ 40.10, -unit, 1.5], [  5+extra_angle,   0, -0], [ 4, 90,  0]], //PINKY 1
+                [[ 60.15, -unit, 3], [  5+extra_angle,   0, -0], [ 6, 90,  0]], //PINKY 2
                 [[ 66.5, -unit*3/8,  21], [ 0,  15, -15], [ 0, 90,  0]], //PINKY 3
                 [[  -63,       -23, -23], [ 0,   0,  10], [-5, 95,  0]], //Thumb Outer
                 [[  -46,       -22, -23], [ 0,   0,   0], [ 0, 90,-60]], //Thumb OuterMid
@@ -180,10 +180,10 @@ RowEnds     = [   R2,    R4,   R4,   R4,   R4,   R4,   R4,   R0,   R2,   R2,    
 //Row transforms
 //              C0:i1 C1:i2 C2:i3  C3:m  C4:r C5:p1 C6:p2 C7:p3 T0:Ot T1:OM T2:Md  T3:IM  T4:In
 RowTrans    = [[ -.18, -.18, -.28,  -.24, -.22, -.28, -.28, -.55, -1.0, -1.0,-1.25, -1.25,     0], //R0
-               [  .79,  .79,  .79,  .82,  .79,  .795,  .795,  .45,    0,  -.0,  -.1,     0,     0], //R1s
-               [ 1.95, 1.94, 1.94, 1.97, 1.94, 1.94, 1.94, 1.60,  .95, 0.95,  .95,   .95,     0], //R2s
-               [ 2.90, 3.02, 3.02, 3.02, 3.02, 3.02, 3.02, 2.55,    0,    0,    0,     0,     0], //R3s
-               [ 3.80, 3.84, 3.84, 3.84, 3.84, 3.84, 3.84,    3,    0,    0,    0,     0,     0], //R4
+               [  .79,  .79,  .79,  .82,  .79,  .79,  .79,  .45,    0,  -.0,  -.1,     0,     0], //R1s
+               [ 1.95, 1.94, 1.94, 1.97, 1.94, 1.98, 1.98, 1.60,  .95, 0.95,  .95,   .95,     0], //R2s
+               [ 2.90, 3.02, 3.02, 3.02, 3.02, 3.08, 3.08, 2.55,    0,    0,    0,     0,     0], //R3s
+               [ 3.80, 3.84, 3.84, 3.84, 3.84, 3.82, 3.82,    3,    0,    0,    0,     0,     0], //R4
                [ 4.45, 4.45, 4.45, 4.45, 4.45,    4,   -4,    4,    0,    0,    0,     0,     0]  //R5
               ]*unit;
 //              C0:i1 C1:i2 C2:i3  C3:m  C4:r C5:p1 C6:p2 C7:p3 T0:Ot T1:OM T2:Md  T3:IM  T4:In
@@ -195,11 +195,11 @@ ColTrans    = [[    0,    0,    0,    0,    0,    0,    0,    0,    0,   .0,    
                [    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0]  //R5
               ]*unit;
 //              C0:i1 C1:i2 C2:i3  C3:m  C4:r C5:p1 C6:p2 C7:p3 T0:Ot T1:OM T2:Md  T3:IM  T4:In
-Pitch       = [[   25,   15,   15,   25,   25,   35,   35,   35,   10,   10,  -10,    10,     0],  //R0
-               [   15,   14,   14,   11,   14,   14,   14,   14,    0,   20,  -35,   -15,     0],  //R1s
-               [  -15,  -10,  -9,   -12,   -9,  -9,  -9,  -15,    0,  -25,  -25,   -25,   0],  //R2s
-               [  -25,  -33,  -33,  -33,  -33,  -33,  -33,  -30,    0,  -60,    0,     0,     0],  //R3
-               [  -45,  -59,  -59,  -59,  -59,  -59,  -59,    0,    0,    0,    0,     0,     0],  //R4
+Pitch       = [[   25,   15,   15,   25,   25,   29,   35,   35,   10,   10,  -10,    10,     0],  //R0
+               [   15,   14,   14,   11,   14,   27,   27,   14,    0,   20,  -35,   -15,     0],  //R1s
+               [  -15,  -10,  -9,   -12,   -9,  -7,  -7,  -15,    0,  -25,  -25,   -25,   0],  //R2s
+               [  -25,  -33,  -33,  -33,  -33,  -35,  -35,  -30,    0,  -60,    0,     0,     0],  //R3
+               [  -45,  -59,  -59,  -59,  -59,  -73,  -73,    0,    0,    0,    0,     0,     0],  //R4
                [  -58,  -58,  -58,  -58,  -58,    0,    0,    0,    0,    0,    0,     0,     0]   //R5
               ];
 //              C0:i1 C1:i2 C2:i3  C3:m  C4:r C5:p1 C6:p2 C7:p3 T0:Ot T1:OM T2:Md  T3:IM  T4:In
@@ -221,9 +221,9 @@ Roll        = [[   -4,    0,    0,    0,    0,    0,    0,    0,    0,    0,    
 //              ];
 Height      = [[ -6.5, -4.5, -4.5, -3.3, -6.3, -8.5, -8.5, -8.5,    1,    0,    0,     0,     0],  //R0
                [    0,    0,   -0,    2,    0,    0,    0,    0,    0,    0,  9.5,     0,     0],  //R1s
-               [    0,    1,    1,    2,    1,    1,    1,    0,   17, 1.85,    2,     0,     0],  //R2s
-               [ -6.5, -6.6, -6.6, -6.6, -6.6, -6.6, -6.6, -.6,    0,  -24,    0,     0,     0],  //R3
-               [  -18,-22.5,-22.5,-22.5,-22.5,-22.5,-22.5,    0,    0,    0,    0,     0,     0],  //R4
+               [    0,    1,    1,    2,    1,    4,    4,    0,   17, 1.85,    2,     0,     0],  //R2s
+               [ -6.5, -6.6, -6.6, -6.6, -6.6, -4.3, -4.3, -.6,    0,  -24,    0,     0,     0],  //R3
+               [  -18,-22.5,-22.5,-22.5,-22.5,-23.2,-23.2,    0,    0,    0,    0,     0,     0],  //R4
                [  -33,  -33,  -33,  -33,  -33,    0,    0,    0,    0,    0,    0,     0,     0]   //R5
               ];
 //Account for non-1u caps
@@ -350,13 +350,13 @@ Sborder = //color "Crimson"
    [C4, RowEnds[C4], false,FRONT, [0,0,0],     [1,RScale,1]]],
 
   [[C4, RowEnds[C4], false,FRONT, [RIGHT,0,0], [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C4
-   [C5, RowEnds[C5], false,FRONT, [0,0,0],     [1,RScale,1]]],
+   [C5, RowEnds[C5], false,FRONT, [0,0,0],     [1,RScale,0.2]]],
 
-  [[C5, RowEnds[C5], false,FRONT, [RIGHT,0,0], [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C4
-   [C6, RowEnds[C6], false,FRONT, [RIGHT,0,0], [1,RScale,1]]],
+  [[C5, RowEnds[C5], false,FRONT, [RIGHT,0,0], [1,RScale,0.2]], //fill gap between general border and Bottom Enclosure near C4
+   [C6, RowEnds[C6], false,FRONT, [RIGHT,0,0], [1,RScale,0.2]]],
   //corner
   [[C4, RowEnds[C4], false,FRONT, [RIGHT,0,0], [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C1
-   [C4, RowEnds[C4], true, RIGHT, [0,FRONT,0], [RScale,1,1]],],
+   [C4, RowEnds[C4], true, FRONT, [0,FRONT,0], [RScale,1,1]],],
   //corner
 ////  [[CEnd, RowEnds[CEnd], false,FRONT, [RIGHT,0,0], [1,RScale,1]], //fill gap between general border and Bottom Enclosure near C1
 ////   [CEnd, RowEnds[CEnd], true, RIGHT, [0,FRONT,0], [RScale,1,1]],],
@@ -614,33 +614,33 @@ Eborder =
     ],
     [//C4R3 FRONT to C5R3
       [[C4, RowEnds[C4], false,FRONT,             [RIGHT,0,BOTTOM], [1,RScale,1]],
-       [C5, RowEnds[C5], false,FRONT,             [0,0,BOTTOM], [1,RScale,1]]],
+       [C5, RowEnds[C5], false,FRONT,             [0,0,BOTTOM], [1,RScale,0.2]]],
       [[C4, RowEnds[C4], false,FRONT+FrontOffset, [RIGHT,0,BOTTOM], [1,EScale,1]],
-       [C5, RowEnds[C5], false,FRONT+FrontOffset, [RIGHT,0,BOTTOM], [1,EScale,1]]],
+       [C5, RowEnds[C5], false,FRONT+FrontOffset, [RIGHT,0,BOTTOM], [1,EScale,0.2]]],
       [0,0,0],
       false
     ],
 
     [//C6 FRONT
-      [[C6, RowEnds[C6], false,FRONT,             [0,0,BOTTOM], [1,RScale,1]]],
-      [[C6, RowEnds[C6], false,FRONT+FrontOffset, [LEFT,0,BOTTOM], [1,EScale,1]],
-       [C6, RowEnds[C6], false,FRONT+FrontOffset-.7, [RIGHT,0,BOTTOM], [1,EScale,1]]],
+      [[C6, RowEnds[C6], false,FRONT,             [0,0,BOTTOM], [1,RScale,0.2]]],
+      [[C6, RowEnds[C6], false,FRONT+FrontOffset, [LEFT,0,BOTTOM], [1,EScale,0.2]],
+       [C6, RowEnds[C6], false,FRONT+FrontOffset, [RIGHT,0,BOTTOM], [1,EScale,0.2]]],
       [0,0,0],
       false
     ],
     [//CEnd conrer
-      [[CEnd, RowEnds[CEnd], true, RIGHT,             [0,FRONT,BOTTOM], [RScale,1,1]],
-       [CEnd, RowEnds[CEnd], false,FRONT,             [RIGHT,0,BOTTOM],    [1,RScale,1]]],
-      [[CEnd, RowEnds[CEnd], true, RIGHT+RightOffset, [0,FRONT,BOTTOM],    [EScale,1,1]],
-       [CEnd, RowEnds[CEnd], false,FRONT+FrontOffset-.7, [RIGHT,0,BOTTOM],    [1,EScale,1]]],
+      [[CEnd, RowEnds[CEnd], true, RIGHT,             [0,FRONT,BOTTOM], [RScale,1,0.2]],
+       [CEnd, RowEnds[CEnd], false,FRONT,             [RIGHT,0,BOTTOM],    [1,RScale,0.2]]],
+      [[CEnd, RowEnds[CEnd], true, RIGHT+RightOffset, [0,FRONT,BOTTOM],    [EScale,1,0.2]],
+       [CEnd, RowEnds[CEnd], false,FRONT+FrontOffset, [RIGHT,0,BOTTOM],    [1,EScale,0.2]]],
       [0,0,0],
       true
     ],
 
 //    //RIGHT Section
     [//CEndR1 side  16
-      [[CEnd, RowEnds[CEnd], true, RIGHT,             [0,0,BOTTOM], [RScale,1,1]]],
-      [[CEnd, RowEnds[CEnd], true, RIGHT+RightOffset, [0,0,BOTTOM],    [EScale,1,1]]],
+      [[CEnd, RowEnds[CEnd], true, RIGHT,             [0,0,BOTTOM], [RScale,1,0.2]]],
+      [[CEnd, RowEnds[CEnd], true, RIGHT+RightOffset, [0,0,BOTTOM],    [EScale,1,0.2]]],
       [0,0,0],
       true
     ],

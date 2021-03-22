@@ -37,7 +37,7 @@ debug() BuildBottomPlate(struct = Eborder, hullList = Hstruct, Mount = true, Jac
 
 /*3. caps for visualization */
   rotate(tenting)translate([0,0,plateHeight]){ 
-    //BuildSet(capType = DSA, colors = "ivory", stemcolor = "lightGreen", switchH = 0);
+    BuildSet(capType = DSA, colors = "ivory", stemcolor = "lightGreen", switchH = 0);
   } 
 } 
     
